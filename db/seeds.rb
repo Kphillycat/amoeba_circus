@@ -10,12 +10,8 @@ talents = Talent.create([{:name=>"acrobat"}, {:name=> "contortionist"}, {:name=>
 amoebas = Amoeba.create([{:name=>"Buzz", :generation=>1}, {:name=>"Kwilly", :generation=>1}, {:name=>"Willy", :generation=>1}])
 acts = Act.create([{:name=>"Freaky Friday",:datetime => Time.now + 60 * 60 * 24}, {:name=>"Ssssspecials Saturday",:datetime =>Time.now + (60 * 60 * 24) * 2 }, {:name=>"Ssssshhh Sunday",:datetime =>Time.now + (60 * 60 * 24) * 3}, {:name=>"Mellow Monday",:datetime =>Time.now + (60 * 60 * 24) * 4}, {:name=>"Terrible Tuesday",:datetime =>Time.now + (60 * 60 * 24) * 5}])
 
-amoebas.each do |a|
-	a.talent = talents.sample
-end
-
-acts.each do |act|
-	rand(1..10).times do |num|
-	 	act.amoebas <<  amoebas[rand(0..amoebas.length-1)]
-	end
+Amoeba.all.each do |a|
+	a.talent_id = rand(0..Talent.all.length-1)
+	a.act_id = rand(0..Act.all.length-1)
+	a.save
 end

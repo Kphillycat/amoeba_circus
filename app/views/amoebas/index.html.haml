@@ -1,0 +1,11 @@
+%h1
+  All these amoebas
+%ul
+- @amoebas.each do |amoeba|    
+  %li
+    Name:
+    = amoeba.name
+  %li
+    Talent:
+    = Act.find(amoeba.talent_id).name
+    = link_to 'Show', amoeba

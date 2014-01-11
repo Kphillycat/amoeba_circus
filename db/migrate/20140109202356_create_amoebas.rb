@@ -1,7 +1,8 @@
 class CreateAmoebas < ActiveRecord::Migration
   def up
   	create_table :amoebas do |t|
-	  t.belongs_to :act
+	    t.integer :act_id
+      t.integer :talent_id
       t.string :name
       t.integer :generation
       t.timestamps

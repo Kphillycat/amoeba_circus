@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20140109202409) do
 
   create_table "amoebas", :force => true do |t|
     t.integer  "act_id"
+    t.integer  "talent_id"
     t.string   "name"
     t.integer  "generation"
     t.datetime "created_at", :null => false
@@ -30,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20140109202409) do
 
   create_table "talents", :force => true do |t|
     t.string   "name"
-    t.integer  "amoeba_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
